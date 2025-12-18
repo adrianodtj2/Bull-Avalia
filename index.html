@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Bull Imóveis - Avaliação Imobiliária</title>
+    
+    <!-- PWA & Mobile Meta Tags -->
+    <meta name="theme-color" content="#111827" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Bull Avaliação" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="manifest.json" />
+    
+    <!-- PDF Generation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+            colors: {
+              bull: {
+                dark: '#111827',
+                gold: '#EAB308',
+                goldLight: '#FEF9C3',
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #F3F4F6;
+        -webkit-tap-highlight-color: transparent;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Template de PDF: Escondido por padrão usando display:none para não interferir */
+      #pdf-template {
+        display: none;
+        width: 210mm; /* Largura exata A4 */
+        background: white;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Quando estiver exportando, mostramos o template e escondemos o resto */
+      body.is-exporting-mode #root {
+        display: none !important;
+      }
+      body.is-exporting-mode #pdf-template {
+        display: block !important;
+        position: relative !important;
+        left: 0 !important;
+        top: 0 !important;
+      }
+
+      /* Ajustes para inputs mobile */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
+      
+      @media screen and (max-width: 768px) {
+        input, select, textarea {
+          font-size: 16px !important;
+        }
+      }
+
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <!-- O Template agora fica fora do root para facilitar o swap de visualização -->
+    <div id="pdf-template"></div>
+  </body>
+</html>

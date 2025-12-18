@@ -1,0 +1,20 @@
+{
+  "short_name": "Bull Imóveis",
+  "name": "Bull Imóveis - Avaliação",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/602/602273.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/602/602273.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#111827",
+  "background_color": "#F3F4F6"
+}
